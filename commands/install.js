@@ -35,7 +35,7 @@ module.exports = function commandInstall(config) {
     // Hash the package-lock.json which contains exact versions
     .then(() => hashFile('./package-lock.json'))
     .then((hash) => {
-      const cachedFilename = path.join(config.cacheDirectory, `${hash}.tgz`);
+      const cachedFilename = path.resolve(config.cacheDirectory, `${hash}.tgz`);
       // Check to see if we already have a tarball
       return fileExists(cachedFilename)
         .then((exists) => {

@@ -31,5 +31,10 @@ Options:
                          happens automatically when using --ci
                                                       [boolean] [default: false]
   --cache-directory, -d  The folder where the tarballs are saved
-                                                               [default: "/tmp"]
+                                                               [default: "~/.sc-cache"]
 ```
+
+## History
+
+* 0.1.1 - Changed default directory to ~/.sc-cache and fixed duration timing
+* 0.1.0 - Initial commit

@@ -7,6 +7,7 @@
 // External
 const tar = require('tar');
 const path = require('path');
+const os = require('os');
 
 // Internal Libraries
 const hashFile = require('../lib/hashFile');
@@ -35,7 +36,7 @@ module.exports = function commandInstall(config) {
     // Hash the package-lock.json which contains exact versions
     .then(() => hashFile('./package-lock.json'))
     .then((hash) => {
-      const cachedFilename = path.resolve(config.cacheDirectory, `${hash}.tgz`);
+      const cachedFilename = path.join(config.cacheDirectory.replace('~', os.homedir()), `${hash}.tgz`);
       // Check to see if we already have a tarball
       return fileExists(cachedFilename)
         .then((exists) => {

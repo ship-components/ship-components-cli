@@ -42,8 +42,7 @@ require('yargs') // eslint-disable-line no-unused-expressions
       .option('cache-directory', {
         alias: 'd',
         describe: 'The folder where the tarballs are saved',
-        default: '~/.sc-cache',
-        coerce: str => path.resolve(str)
+        default: '~/.sc-cache'
       }),
     handler: install
   })

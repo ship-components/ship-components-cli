@@ -1,0 +1,10 @@
+{
+  "extends": "ship-components-base",
+  "globals": {
+    "Promise": true
+  },
+  "env": {
+    "node": true,
+    "browser": false
+  }
+}

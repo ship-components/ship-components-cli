@@ -1,0 +1,29 @@
+{
+  "name": "ship-components-cli",
+  "version": "0.1.0",
+  "description": "Command line tools for Ship Components",
+  "main": "./index.js",
+  "bin": {
+    "sc": "./cli.js"
+  },
+  "scripts": {
+    "lint": "eslint lib/ commands/ index.js cli.js",
+    "lint:fix": "eslint --fix lib/ commands/ index.js cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isaac Suttell <isaac.suttell@sony.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6",
+    "npm": ">=5"
+  },
+  "dependencies": {
+    "rimraf": "^2.6.2",
+    "tar": "^4.4.6",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-ship-components-base": "^1.1.0"
+  }
+}

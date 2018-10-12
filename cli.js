@@ -33,6 +33,12 @@ require('yargs') // eslint-disable-line no-unused-expressions
         boolean: true,
         default: true
       })
+      .option('force', {
+        alias: 'f',
+        describe: 'Overwrite existing cache',
+        boolean: true,
+        default: false
+      })
       .option('clean', {
         alias: 'c',
         describe: 'Delete existing node_modules before installing. This happens automatically when using --ci',

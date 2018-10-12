@@ -40,7 +40,7 @@ module.exports = function commandInstall(config) {
       // Check to see if we already have a tarball
       return fileExists(cachedFilename)
         .then((exists) => {
-          if (exists) {
+          if (!config.force && exists) {
             // If it exists then just extract it
             console.log(`[${getTime()}][INFO] No changes detected. Extracting from ${cachedFilename}`);
             return tar.extract({

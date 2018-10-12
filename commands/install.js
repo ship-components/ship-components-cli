@@ -60,8 +60,8 @@ module.exports = function commandInstall(config) {
         .then(() => {
           // Keep track of the performance. Does this script actually help?
           const diff = process.hrtime(startTime);
-          const duration = diff[0] + diff[1] / 1000000;
-          console.log(`[${getTime()}][INFO] npm install complete - ${duration.toFixed(1)}ms`);
+          const duration = (diff[0] * 1000) + (diff[1] / 1000000);
+          console.log(`[${getTime()}][INFO] npm install complete - ${Math.trunc(duration)}ms`);
         });
     })
     .catch((err) => {

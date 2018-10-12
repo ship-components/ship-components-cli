@@ -12,7 +12,7 @@ const os = require('os');
 // Internal Libraries
 const hashFile = require('../lib/hashFile');
 const fileExists = require('../lib/fileExists');
-const install = require('../lib/install');
+const npmInstall = require('../lib/npmInstall');
 const clean = require('../lib/clean');
 
 // Helper function to get the current time in a consistent foramt
@@ -48,7 +48,7 @@ module.exports = function commandInstall(config) {
             });
           } else {
             // If it doesn't exist then do a normal install
-            return install(config)
+            return npmInstall(config)
               .then(() => {
                 console.log(`[${getTime()}][INFO] Caching node_modules/ to to ${cachedFilename}`);
                 return tar.create({

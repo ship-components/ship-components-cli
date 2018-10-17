@@ -36,6 +36,7 @@ Options:
 
 ## History
 
+* 0.2.0 - Configure tar command to be non blocking
 * 0.1.2 - Fixed issue with ~ not resolving correctly
 * 0.1.1 - Changed default directory to ~/.sc-cache and fixed duration timing
 * 0.1.0 - Initial commit

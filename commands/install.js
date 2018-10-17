@@ -14,6 +14,7 @@ const hashFile = require('../lib/hashFile');
 const fileExists = require('../lib/fileExists');
 const npmInstall = require('../lib/npmInstall');
 const clean = require('../lib/clean');
+const backgroundPackage = require('../lib/backgroundPackage');
 
 // Helper function to get the current time in a consistent foramt
 const getTime = () => new Date().toISOString();
@@ -50,11 +51,14 @@ module.exports = function commandInstall(config) {
             // If it doesn't exist then do a normal install
             return npmInstall(config)
               .then(() => {
-                console.log(`[${getTime()}][INFO] Caching node_modules/ to to ${cachedFilename}`);
-                return tar.create({
+                console.log(`[${getTime()}][INFO] Caching node_modules/ to ${cachedFilename} in the background`);
+                backgroundPackage({
                   gzip: config.gzip,
-                  file: cachedFilename
-                }, ['./node_modules']);
+                  mode: 'compress',
+                  source: ['./node_modules'],
+                  destination: cachedFilename
+                });
+                return null;
               });
           }
         })
